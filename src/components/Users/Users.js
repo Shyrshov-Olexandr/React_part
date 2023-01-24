@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {UserDetails} from "../User/UserDetails";
+// import axios from "axios";
+import {axiosService} from "../../services/axiosService";
 
 const Users = () => {
     const [users, setUsers] = useState([])
     useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users').then(value => value.json()).then(value => setUsers(value))
+        axiosService.get('/users').then(value => value.data).then(value => setUsers([...value]))
     }, [])
 
     return (
