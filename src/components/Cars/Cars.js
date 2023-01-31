@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {carServace} from "../../services";
+// import {carServace} from "../../services";
 import {Car} from "../Car/Car";
 
 const Cars = ({cars, setUpdateCar}) => {
