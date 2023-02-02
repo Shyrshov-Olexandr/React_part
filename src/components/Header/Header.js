@@ -1,7 +1,9 @@
 import React from 'react';
 import css from './Header.module.css'
 import {NavLink} from "react-router-dom";
+import {useAuthContext} from "../../hooks/useAuthContext";
 const Header = () => {
+    const {user} = useAuthContext();
     return (
         <div className={css.Header}>
             <NavLink to={""}>
@@ -16,6 +18,10 @@ const Header = () => {
             <NavLink to={"about"}>
                 About
             </NavLink>
+            {user &&
+                <div>
+                    {user}<button>Logout</button>
+                </div>}
         </div>
     );
 };
