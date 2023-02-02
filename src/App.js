@@ -1,6 +1,6 @@
 import './App.css';
-import {Route, Routes} from "react-router-dom";
-import {AboutPage, HomePage, NotFoundPage, PostDetailsPage, PostPage, UsersPage} from "./pages";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {HomePage, AboutPage, NotFoundPage, PostDetailsPage, PostPage, UsersPage} from "./pages";
 import {MainLayout} from "./layouts";
 import React from "react";
 
@@ -9,7 +9,8 @@ function App() {
     <div>
       <Routes>
           <Route path={'/'} element={<MainLayout/>}>
-              <Route index element={<HomePage/>}/>
+              <Route index element={<Navigate to={'home'}/>}/>
+              <Route path={'home'} element={<HomePage/>}/>
               <Route path={'users'} element={<UsersPage/>}/>
               <Route path={'posts'} element={<PostPage/>}>
                   <Route path={':postId'} element={<PostDetailsPage/>}/>
@@ -22,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export {App};

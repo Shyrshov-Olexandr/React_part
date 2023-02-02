@@ -1,0 +1,15 @@
+.Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #141720;
+    color: #00c2ff;
+    height: 20px;
+    width: 60px;
+}
+
+.Button:hover{
+    background-color: #687297;
+    color: #00e398;
+    cursor: pointer;
+}
