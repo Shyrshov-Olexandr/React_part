@@ -5,7 +5,7 @@ import {useReducer, useRef} from "react";
 const reduser = (state, action) => {
     switch (action.type){
         case 'ADD_CAT':
-            const [lastCat] = state.cats.splice(-1);
+            const [lastCat] = state.cats.slice(-1);
             const catId = lastCat?lastCat.id+1:0;
             return {...state, cats:[...state.cats, {id:catId, name:action.payload}]}
         case 'DELETE_CAT':
@@ -13,7 +13,7 @@ const reduser = (state, action) => {
             state.cats.splice(catIndex, 1)
             return {...state}
         case 'ADD_DOG':
-            const [lastDog] = state.dogs.splice(-1);
+            const [lastDog] = state.dogs.slice(-1);
             const dogId = lastDog?lastDog.id+1:0;
             return {...state, dogs:[...state.dogs, {id:dogId, name:action.payload}]}
         case 'DELETE_DOG':
